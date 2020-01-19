@@ -15,14 +15,35 @@ async def on_ready():
 
 # Commands  
 
+# Level To Experience 
 @bot.command() 
 async def exp(ctx,*,args):
-    
-
     payload = json.dumps( {"type": "level","level": float(args)} )
     # api request 
-    response = requests.request("POST", url, data=payload, headers=headers)
+    res = requests.request("POST", url, data=payload, headers=headers)
+    
+    data = json.loads(res.text)
+    # Embed 
+    embed = discord.Embed(title=str(ctx.author), description="", color=0x0000ff)
+    embed.add_field(name="Level", value="{}".format(args), inline=False)
+    embed.add_field(name="Experience", value="{}".format(data["xp"]), inline=False)
     # sends results 
-    await ctx.send(response.text)
+    await ctx.send(embed=embed)
+    
+#Experience To Level 
+     
+@bot.command() 
+async def level(ctx,*,args):
+    payload = json.dumps( {"type": "xp","xp": float(args)} )
+    # api request 
+    res = requests.request("POST", url, data=payload, headers=headers)
+    
+    data = json.loads(res.text)
+    # Embed 
+    embed = discord.Embed(title=str(ctx.author), description="", color=0x0000ff)
+    embed.add_field(name="Level", value="{}".format(data["level"]), inline=False)
+    embed.add_field(name="Experience", value="{}".format(args), inline=False)
+    # sends results 
+    await ctx.send(embed=embed)
     
 bot.run(os.getenv('TOKEN'))
