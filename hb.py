@@ -2,6 +2,7 @@ import discord,os
 import asyncio
 from discord.ext import commands 
 import requests
+import json
 
 bot = commands.Bot(command_prefix='$') 
 url = os.getenv('resturl')
