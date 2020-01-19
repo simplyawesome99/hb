@@ -1,27 +1,27 @@
 import discord,os
 import asyncio
 from discord.ext import commands 
+import requests
 
 bot = commands.Bot(command_prefix='$') 
+url = os.getenv('resturl')
+headers = {'content-type': "application/json",'cache-control': "no-cache"}
 
 @bot.event
 async def on_ready():
-    game = discord.Activity(name="Sleeping", type=discord.ActivityType.listening)
+    game = discord.Activity(name="Sleeping", type=discord.ActivityType.playing)
     await bot.change_presence(status=discord.Status.dnd, activity=game)
 
 # Commands  
 
 @bot.command() 
-async def say(ctx,*,args):
-    await ctx.send(args) 
+async def exp(ctx,*,args):
+    
 
-@bot.command() 
-async def hi(ctx):
-    user = ctx.author.id
-    await ctx.send("Hello "+str(user)) 
-
-@bot.command() 
-async def dothis(ctx):
-    await ctx.send("Done :sunglasses:")
-
+    payload = json.dumps( {"type": "level","level": float(args)} )
+    # api request 
+    response = requests.request("POST", url, data=payload, headers=headers)
+    # sends results 
+    await ctx.send(response.text)
+    
 bot.run(os.getenv('TOKEN'))
