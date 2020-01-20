@@ -28,7 +28,7 @@ async def xp(ctx,*,args):
     
         data = json.loads(res.text)
         # Embed 
-        embed = discord.Embed(title="> **Minecraft XP Calculator", description="Here is your Result ", color=0xffff40)
+        embed = discord.Embed(title="> **Minecraft XP Calculator**", description="Here is your Result ", color=0xffff40)
         embed.set_thumbnail(url=os.getenv('thurl'))
         embed.add_field(name="Experience Level", value="{}".format(args), inline=False)
         embed.add_field(name="Total Experience", value="{}".format(data["xp"]), inline=False)
@@ -39,15 +39,15 @@ async def xp(ctx,*,args):
     
 #Experience To Level 
 @bot.command() 
-async def level(ctx,*,args):
-    if float(args) >= 0.0:
-        payload = json.dumps( {"type": "xp","xp": float(args)} )
+async def level(ctx,*,args: float):
+    if args >= 0.0:
+        payload = json.dumps( {"type": "xp","xp": args} )
         # api request 
         res = requests.request("POST", url, data=payload, headers=headers)
     
         data = json.loads(res.text)
         # Embed 
-        embed = discord.Embed(title="> **Minecraft XP Calculator", description="Here is your Result ", color=0xffff40)
+        embed = discord.Embed(title="> **Minecraft XP Calculator**", description="Here is your Result ",footer="Made By @MrEinsteinReturns#0521", color=0xffff40)
         embed.set_thumbnail(url=os.getenv('thurl'))
         embed.add_field(name="Experience Level", value="{}".format(data["level"]), inline=False)
         embed.add_field(name="Total Experience", value="{}".format(args), inline=False)
