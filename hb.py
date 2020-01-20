@@ -29,7 +29,8 @@ async def xp(ctx,*,args: float):
         data = json.loads(res.text)
         # Embed 
         embed = discord.Embed(title="> **Minecraft XP Calculator**", description="Your Result :  ", color=0xffff40)
-        embed.set_footer('Made By @MrEinsteinReturns#0521') embed.set_thumbnail(url=os.getenv('thurl'))
+        embed.set_footer('Made By @MrEinsteinReturns#0521')
+        embed.set_thumbnail(url= os.getenv('thurl'))
         embed.add_field(name="Experience Level", value="{}".format(args), inline=False)
         embed.add_field(name="Total Experience", value="{}".format(data["xp"]), inline=False)
         # sends results 
@@ -49,7 +50,7 @@ async def level(ctx,*,args: float):
         # Embed 
         embed = discord.Embed(title="> **Minecraft XP Calculator**", description="Your Result :  ", color=0xffff40)
         embed.set_footer('Made By @MrEinsteinReturns#0521')
-         embed.set_thumbnail(url=os.getenv('thurl'))
+        embed.set_thumbnail(url= os.getenv('thurl'))
         embed.add_field(name="Experience Level", value="{}".format(data["level"]), inline=False)
         embed.add_field(name="Total Experience", value="{}".format(args), inline=False)
         # sends results 
