@@ -34,7 +34,7 @@ async def xp(ctx,*,args):
     mclevel = float(raw[0]) or 0
     if mclevel >=0.0:
         mcxp = mc.getXP(mclevel)
-        embed = discord.Embed(title="> **Minecraft mcxp Calculator**", description="Your Result :  ", color=0xffff40)
+        embed = discord.Embed(title="> **Minecraft XP Calculator**", description="Your Result :  ", color=0xffff40)
         embed.set_footer(text='Made By @MrEinsteinReturns#0521',icon_url='')
         embed.set_thumbnail(url= os.getenv('thurl'))
         embed.add_field(name="Experience Level", value="{}".format(mclevel), inline=False)
@@ -52,7 +52,7 @@ async def level(ctx,*,args):
     mcxp = float(raw[0]) or 0
     if mcxp >=0.0:
         mclevel = mc.getLevel(mcxp)
-        embed = discord.Embed(title="> **Minecraft mcxp Calculator**", description="Your Result :  ", color=0xffff40)
+        embed = discord.Embed(title="> **Minecraft XP Calculator**", description="Your Result :  ", color=0xffff40)
         embed.set_footer(text='Made By @MrEinsteinReturns#0521',icon_url='')
         embed.set_thumbnail(url= os.getenv('thurl'))
         embed.add_field(name="Experience Level", value="{}".format(mclevel), inline=False)
