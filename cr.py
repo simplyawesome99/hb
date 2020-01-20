@@ -5,8 +5,8 @@ import json
 class CustomRequest:
     def __init__(self,url):
     
-        this.url = url
-        this.headers = {'content-type': "application/json",'cache-control': "no-cache"}
+        self.url = url
+        self.headers = {'content-type': "application/json",'cache-control': "no-cache"}
         
     def request(self,payload):
     
