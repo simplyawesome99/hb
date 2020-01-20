@@ -26,7 +26,7 @@ async def on_ready():
 
 # Commands  
 
-# mclevel To Emcxperience 
+# mclevel To Experience 
 
 @bot.command() 
 async def xp(ctx,*,args):
@@ -37,15 +37,15 @@ async def xp(ctx,*,args):
         embed = discord.Embed(title="> **Minecraft mcxp Calculator**", description="Your Result :  ", color=0xffff40)
         embed.set_footer(text='Made By @MrEinsteinReturns#0521',icon_url='')
         embed.set_thumbnail(url= os.getenv('thurl'))
-        embed.add_field(name="Emcxperience mclevel", value="{}".format(mclevel), inline=False)
-        embed.add_field(name="Total Emcxperience", value="{}".format(mcxp), inline=False)
+        embed.add_field(name="Experience Level", value="{}".format(mclevel), inline=False)
+        embed.add_field(name="Total Experience", value="{}".format(mcxp), inline=False)
         # sends results 
         await ctx.send(embed=embed)
         
     else:
         await ctx.send("Only Positive Value Allowed!")
     
-#Emcxperience To mclevel 
+#Experience To mclevel 
 @bot.command() 
 async def level(ctx,*,args):
     raw = re.findall(r"[-+]?\d*\.\d+|\d+",args)
@@ -55,8 +55,8 @@ async def level(ctx,*,args):
         embed = discord.Embed(title="> **Minecraft mcxp Calculator**", description="Your Result :  ", color=0xffff40)
         embed.set_footer(text='Made By @MrEinsteinReturns#0521',icon_url='')
         embed.set_thumbnail(url= os.getenv('thurl'))
-        embed.add_field(name="Emcxperience mclevel", value="{}".format(mclevel), inline=False)
-        embed.add_field(name="Total Emcxperience", value="{}".format(mcxp), inline=False)
+        embed.add_field(name="Experience Level", value="{}".format(mclevel), inline=False)
+        embed.add_field(name="Total Experience", value="{}".format(mcxp), inline=False)
         # sends results 
         await ctx.send(embed=embed)
         
