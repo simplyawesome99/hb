@@ -21,14 +21,14 @@ mc = cr.CustomRequest(rurl)
 @bot.event
 async def on_ready():
 
-    game = discord.Activity(name="Minecraft", type=discord.ActivityType.playing)
+    game = discord.Activity(name="Development", type=discord.ActivityType.playing)
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 # Commands  
 
 # mclevel To Experience 
 
-@bot.command() 
+@bot.command(aliases=['exp','fromlevel','toxp']) 
 async def xp(ctx,*,args):
     raw = re.findall(r"[-+]?\d*\.\d+|\d+",args)
     mclevel = float(raw[0]) or 0
@@ -64,4 +64,5 @@ async def level(ctx,*,args):
         await ctx.send("Only Positive Value Allowed!")
     
 # Running The Bot        
+
 bot.run(os.getenv('TOKEN'))
