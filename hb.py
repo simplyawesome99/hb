@@ -21,7 +21,7 @@ async def on_ready():
 # Level To Experience 
 @bot.command() 
 async def xp(ctx,*,args):
-    if args >= 0:
+    if float(args) >= 0.0:
         payload = json.dumps( {"type": "level","level": float(args)} )
         # api request 
         res = requests.request("POST", url, data=payload, headers=headers)
@@ -40,7 +40,7 @@ async def xp(ctx,*,args):
 #Experience To Level 
 @bot.command() 
 async def level(ctx,*,args):
-    if args >= 0:
+    if float(args) >= 0.0:
         payload = json.dumps( {"type": "xp","xp": float(args)} )
         # api request 
         res = requests.request("POST", url, data=payload, headers=headers)
