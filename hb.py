@@ -45,9 +45,9 @@ async def xp(ctx,*,args):
     else:
         await ctx.send("Only Positive Value Allowed!")
     
-#Experience To mclevel 
-@bot.command() 
-async def level(ctx,*,args):
+#Experience To MClevel 
+@bot.command(aliases=['lv','fromxp','tolevel']) 
+async def mclevel(ctx,*,args):
     raw = re.findall(r"[-+]?\d*\.\d+|\d+",args)
     mcxp = float(raw[0]) or 0
     if mcxp >=0.0:
